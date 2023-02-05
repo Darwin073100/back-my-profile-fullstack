@@ -1,3 +1,4 @@
+//@ts-check
 const Joi = require('joi');
 
 const id = Joi.number().integer();
