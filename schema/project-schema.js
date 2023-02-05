@@ -19,7 +19,6 @@ const createProjectSchema = Joi.object({
   name: name.required(),
   description: description.required(),
   uriProject: uriProject.required(),
-  createAt,
 });
 
 const updateProjectSchema = Joi.object({
