@@ -29,16 +29,16 @@ const PersonSchema = {
     type: DataTypes.STRING,
   },
   uriImg: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
     field: 'uri_img'
   },
   description: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
   },
   linkedin: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
   },
 };
@@ -46,7 +46,7 @@ const PersonSchema = {
 class Person extends Model{
   static associate(models){
     this.hasOne(models.Project,{
-      as: 'Project',
+      as: 'project',
       foreignKey: 'personId'
     });
   }

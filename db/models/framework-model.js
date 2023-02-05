@@ -1,4 +1,3 @@
-//@ts-check
 const { Model, DataTypes, Sequelize } = require("sequelize");
 const { LANGUAGE_TABLE } = require("./language-model");
 
@@ -35,6 +34,18 @@ const FrameworkSchema = {
     allowNull: true,
     type: DataTypes.STRING,
   },
+  createdAt: {
+    allowNull: true,
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.NOW,
+    field: "created_at",
+  },
+  updatedAt: {
+    allowNull: true,
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.NOW,
+    field: "updated_at",
+  }
 };
 
 class Framework extends Model {

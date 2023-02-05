@@ -23,11 +23,11 @@ const LanguageSchema = {
 class Language extends Model{
   static associate(models){
     this.hasMany(models.Project,{
-      as: 'Project',
+      as: 'project',
       foreignKey: 'languageId'
     });
     this.hasMany(models.Framework,{
-      as: 'Framework',
+      as: 'framework',
       foreignKey: 'languageId'
     });
   }

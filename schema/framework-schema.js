@@ -6,6 +6,8 @@ const languageId = Joi.number().integer();
 const name = Joi.string();
 const uriImg = Joi.string().uri();
 const description = Joi.string();
+const createdAt = Joi.date();
+const updatedAt = Joi.date();
 
 const getFrameworkSchema = Joi.object({
   id: id.required(),
@@ -23,6 +25,8 @@ const updateFrameworkSchema = Joi.object({
   name,
   uriImg,
   description,
+  createdAt,
+  updatedAt
 });
 
 module.exports = {
