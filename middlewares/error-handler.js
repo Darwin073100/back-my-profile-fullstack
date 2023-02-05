@@ -6,12 +6,22 @@ function logErrors(error, req, res, next){
   next(error);
 }
 
+function unknownHandler(error, req, res, next){
+  res.status(error.output.statusCode).json({
+    statusCode: error.output.statusCode,
+    message: error.message,
+    stack: error.stack
+  });
+  next(error)
+}
+
 function errorHandler(error, req, res, next){
-  res.status(500).json({
+  res.status(error.output.statusCode).json({
     statusCode: 500,
     message: error.message,
     stack: error.stack
   });
+  next(error)
 }
 
 function boomErrorHandler(error, req, res, next){
@@ -33,4 +43,4 @@ function ormErrorHandler(error, req, res, next) {
   next(error);
 }
 
-module.exports = {logErrors, errorHandler, boomErrorHandler, ormErrorHandler};
+module.exports = {logErrors,unknownHandler, errorHandler, boomErrorHandler, ormErrorHandler};
