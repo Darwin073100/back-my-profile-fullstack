@@ -1,4 +1,5 @@
 const { Model, DataTypes, Sequelize } = require("sequelize");
+const { FRAMEWORK_TABLE } = require("./framework-model");
 const { LANGUAGE_TABLE } = require("./language-model");
 const { PERSON_TABLE } = require("./person-model");
 
@@ -23,11 +24,22 @@ const ProjectSchema = {
     onUpdate: "CASCADE",
   },
   languageId: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.INTEGER,
     field: "language_id",
     references: {
       model: LANGUAGE_TABLE,
+      key: "id",
+    },
+    onDelete: "SET NULL",
+    onUpdate: "CASCADE",
+  },
+  frameworkId: {
+    allowNull: true,
+    type: DataTypes.INTEGER,
+    field: "framework_id",
+    references: {
+      model: FRAMEWORK_TABLE,
       key: "id",
     },
     onDelete: "SET NULL",
@@ -59,6 +71,7 @@ class Project extends Model {
   static associate(models) {
     this.belongsTo(models.Language, { as: "language" });
     this.belongsTo(models.Person, { as: "person" });
+    this.belongsTo(models.Framework, {as: "framework"});
   }
   static config(sequelize) {
     return {

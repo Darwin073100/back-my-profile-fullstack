@@ -14,6 +14,10 @@ const LanguageSchema = {
     allowNull: false,
     type: DataTypes.STRING,
   },
+  version: {
+    allowNull: true,
+    type: DataTypes.STRING
+  },
   uriImg: {
     allowNull: false,
     type: DataTypes.STRING,

@@ -5,6 +5,7 @@ const id = Joi.number().integer();
 const name = Joi.string();
 const lastName = Joi.string();
 const email = Joi.string().email();
+const phone = Joi.string();
 const address = Joi.string();
 const uriImg = Joi.string().uri();
 const description = Joi.string();
@@ -18,6 +19,7 @@ const createPersonSchema = Joi.object({
   name: name.required(),
   lastName: lastName.required(),
   email,
+  phone,
   address,
   uriImg,
   description,
@@ -28,6 +30,7 @@ const updatePersonSchema = Joi.object({
   name,
   lastName,
   email,
+  phone,
   address,
   uriImg,
   description,

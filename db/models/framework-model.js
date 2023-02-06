@@ -25,8 +25,12 @@ const FrameworkSchema = {
     allowNull: false,
     type: DataTypes.STRING,
   },
+  version: {
+    allowNull: true,
+    type: DataTypes.STRING
+  },
   uriImg: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
     field: "uri_img",
   },
@@ -51,6 +55,10 @@ const FrameworkSchema = {
 class Framework extends Model {
   static associate(models) {
     this.belongsTo(models.Language, { as: "language" });
+    this.hasMany(models.Project,{
+      as: 'project',
+      foreignKey: 'frameworkId'
+    });
   }
   static config(sequelize) {
     return {

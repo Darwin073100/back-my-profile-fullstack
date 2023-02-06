@@ -18,10 +18,7 @@ class ProjectService{
   // method for returned one item by id of Project
   async findOne(id){
     const project = await models.Project.findByPk(id,{
-      include:['person',{
-        association: 'language',
-        include:'framework'
-      }]
+      include:['person','language','framework']
     });
     if(!project){
       throw boom.notFound('project not found');

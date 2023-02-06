@@ -24,6 +24,10 @@ const PersonSchema = {
     type: DataTypes.STRING,
     unique: true
   },
+  phone: {
+    allowNull: true,
+    type: DataTypes.STRING,
+  },
   address: {
     allowNull: false,
     type: DataTypes.STRING,
