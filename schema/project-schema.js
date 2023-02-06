@@ -6,7 +6,6 @@ const languageId = Joi.number().integer();
 const name = Joi.string();
 const description = Joi.string();
 const uriProject = Joi.string().uri();
-//@ts-check
 const createAt = Joi.date().timestamp();
 
 const getProjectSchema = Joi.object({
