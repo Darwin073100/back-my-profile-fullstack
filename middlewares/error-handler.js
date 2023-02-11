@@ -7,10 +7,10 @@ function logErrors(error, req, res, next){
 }
 
 function unknownHandler(error, req, res, next){
-  res.status(error.output.statusCode).json({
-    statusCode: error.output.statusCode,
-    message: error.message,
-    stack: error.stack
+  res.status(error?.output?.statusCode).json({
+    statusCode: error?.output?.statusCode,
+    message: error?.message,
+    stack: error?.stack
   });
   next(error)
 }

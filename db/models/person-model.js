@@ -39,7 +39,7 @@ const PersonSchema = {
   },
   description: {
     allowNull: true,
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
   },
   linkedin: {
     allowNull: true,
@@ -49,7 +49,7 @@ const PersonSchema = {
 
 class Person extends Model{
   static associate(models){
-    this.hasOne(models.Project,{
+    this.hasMany(models.Project,{
       as: 'project',
       foreignKey: 'personId'
     });

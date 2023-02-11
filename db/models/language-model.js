@@ -30,7 +30,7 @@ class Language extends Model{
       as: 'project',
       foreignKey: 'languageId'
     });
-    this.hasMany(models.Framework,{
+    this.hasOne(models.Framework,{
       as: 'framework',
       foreignKey: 'languageId'
     });

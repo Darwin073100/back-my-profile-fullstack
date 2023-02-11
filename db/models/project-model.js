@@ -51,7 +51,7 @@ const ProjectSchema = {
   },
   description: {
     allowNull: false,
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
   },
   uriProject: {
     allowNull: false,

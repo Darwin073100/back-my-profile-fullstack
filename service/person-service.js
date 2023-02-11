@@ -11,14 +11,28 @@ class PersonService{
 
   // method for returned all items of Person
   async findAll(){
-    const rta = await models.Person.findAll();
+    const rta = await models.Person.findAll({
+      include:[{
+        association: 'project',
+        include:[{
+          association: 'language',
+          include: 'framework'
+        }]
+      }]
+    });
     return rta;
   }
 
   // method for returned one item by id of Person
   async findOne(id){
     const person = await models.Person.findByPk(id,{
-      include:['project']
+      include:['project',{
+        association: 'project',
+        include:['language',{
+          association: 'language',
+          include: 'framework'
+        }]
+      }]
     });
     if(!person){
       throw boom.notFound('person not found');

@@ -36,7 +36,7 @@ const FrameworkSchema = {
   },
   description: {
     allowNull: true,
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
   },
   createdAt: {
     allowNull: true,
