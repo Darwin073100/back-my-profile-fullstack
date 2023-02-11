@@ -14,10 +14,7 @@ class PersonService{
     const rta = await models.Person.findAll({
       include:[{
         association: 'project',
-        include:[{
-          association: 'language',
-          include: 'framework'
-        }]
+        include:['language', 'framework']
       }]
     });
     return rta;

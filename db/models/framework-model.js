@@ -31,7 +31,7 @@ const FrameworkSchema = {
   },
   uriImg: {
     allowNull: true,
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     field: "uri_img",
   },
   description: {
